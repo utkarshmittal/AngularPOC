@@ -1,0 +1,209 @@
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.4/angular-material.css">
+</head>
+
+<body ng-app="myApp" layout="column">
+  
+  <script src="D:/Projects/Learning Projects/Angular Material POC/angular-1.3.15/angular.min.js"></script>
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <!-- Your application bootstrap  -->
+  <script type="text/javascript">
+    /**
+     * You must include the dependency on 'ngMaterial' 
+     */
+    angular.module('myApp', ['ngMaterial'])
+      .config(function ($mdThemingProvider) {
+        $mdThemingProvider.theme('default')
+          .primaryPalette('blue', {
+            'default': '400', // by default use shade 400 from the pink palette for primary intentions
+            'hue-1': '100', // use shade 100 for the <code>md-hue-1</code> class
+            'hue-2': 'A100', // use shade 600 for the <code>md-hue-2</code> class
+            'hue-3': 'A100' // use shade A100 for the <code>md-hue-3</code> class
+          })
+          .accentPalette('purple', {
+            'default': '200' // use shade 200 for default, and keep all other shades the same
+          });
+        $mdThemingProvider.theme('altTheme')
+          .primaryPalette('purple');
+        // $mdThemingProvider.enableBrowserColor({
+        //   theme: 'myTheme', // Default is 'default'
+        //   palette: 'accent', // Default is 'primary', any basic material palette and extended palettes are available
+        //   hue: '200' // Default is '800'
+        // });
+      })
+      .run(function () {
+        console.log("this is demo app");
+      })
+      .controller('MyController', function ($scope, $mdBottomSheet) {
+        $scope.openBottomSheet = function () {
+          $mdBottomSheet.show({
+            template: '<md-bottom-sheet>' +
+              'Hello! <md-button ng-click="closeBottomSheet()">Close</md-button>' +
+              '</md-bottom-sheet>'
+          })
+
+            // Fires when the hide() method is used
+            .then(function () {
+              console.log('You clicked the button to close the bottom sheet!');
+            })
+
+            // Fires when the cancel() method is used
+            .catch(function () {
+              console.log('You hit escape or clicked the backdrop to close.');
+            });
+        };
+
+        $scope.closeBottomSheet = function ($scope, $mdBottomSheet) {
+          $mdBottomSheet.hide();
+        }
+
+      });
+  </script>
+
+  <md-toolbar>
+    <h1>Demo App Header</h1>
+  </md-toolbar>
+  <div layout="row" flex>
+    <md-sidenav md-is-locked-open="true" class="md-whiteframe-4dp">
+      <md-list>
+        <md-list-item>
+          <md-button flex>Item 1</md-button>
+        </md-list-item>
+        <md-list-item>
+          <md-button flex>Item 2</md-button>
+        </md-list-item>
+        <md-list-item>
+          <md-button flex>Item 3</md-button>
+        </md-list-item>
+        <md-list-item>
+          <md-button flex>Item 4</md-button>
+        </md-list-item>
+      </md-list>
+    </md-sidenav>
+    <md-content id="content" layout-padding flex>
+      <div>
+        <div>
+          <md-button class="md-raised" aria-label="demo button">Test
+          </md-button>
+          <md-button aria-label="demo button">
+            Home
+          </md-button>
+
+        </div>
+        <div>
+          <section layout="row" flex="50" layout-align="center">
+            <md-button class="groupX left">Apple</md-button>
+            <md-button class="groupX middle">Samsung</md-button>
+            <md-button class="groupX middle">Sony</md-button>
+            <md-button class="groupX right">B&amp;O</md-button>
+          </section>
+        </div>
+        <div>
+          <md-checkbox class="green" aria-label "demo checkbox">
+            Green Checkbox
+          </md-checkbox>
+        </div>
+        <div>
+          with default theme:
+          <md-button class="md-primary">Click me</md-button>
+          <md-button class="md-accent">or maybe me</md-button>
+          <md-button class="md-warn">Careful</md-button>
+          <div md-theme="altTheme">
+            With purple theme:
+            <md-button class="md-primary">Click me</md-button>
+            <md-button class="md-primary md-hue-1">Click me</md-button>
+            <md-button class="md-primary md-hue-2">Click me</md-button>
+          </div>
+        </div>
+        <div layout="row" class="zero">
+          <div flex="35" flex-md="50" class="one">flex</div>
+          <div flex="33" layout="column" layout-md="row" class="two">
+            <div flex="20" flex-md="10" hide-lg class="two_one">demo1</div>
+            <div flex="30px" show hide-md="{{ vm.hideBox }}" flex-md="25" class="two_two">demo2</div>
+            <div flex="20" flex-md="65" class="two_three">demo3</div>
+          </div>
+          <div flex class="three"></div>
+        </div>
+        <div layout="row">
+          <div flex>First item in row</div>
+          <div flex>Second item in row</div>
+        </div>
+        <div layout="column">
+          <div flex>First item in column</div>
+          <div flex>Second item in column</div>
+        </div>
+        <div ng-controller="MyController">
+          <md-button ng-click="openBottomSheet()">
+            Open a Bottom Sheet!
+          </md-button>
+        </div>
+        <div layout="row" layout-nowrap>
+          <div flex="33">[flex=33]</div>
+          <div flex="66">[flex=66]</div>
+          <div flex="66">[flex=66]</div>
+          <div flex="33">[flex=33]</div>
+          <div flex="33">[flex=33]</div>
+          <div flex="33">[flex=33]</div>
+          <div flex="33">[flex=33]</div>
+        </div>
+        <div>
+          <md-input-container>
+            <label>Email</label>
+            <input ng-model="user.email" type="email" title="Email Cell Phone">
+          </md-input-container>
+          <md-input-container>
+            <label>State</label>
+            <md-select ng-model="ctrl.userState">
+              <md-option value="None">
+                <em>None</em>
+              </md-option>
+              <md-option value="None1">
+                <em>None1</em>
+              </md-option>
+              <md-option value="None2">
+                <em>None2</em>
+              </md-option>
+              <md-option value="None3">
+                <em>None3</em>
+              </md-option>
+              <md-option value="None4">
+                <em>None4</em>
+              </md-option>
+              <md-option value="None5">
+                <em>None5</em>
+              </md-option>
+            </md-select>
+          </md-input-container>
+        </div>
+      </div>
+      <div>
+        <h3> RGB
+        </h3>
+        <md-slider-container>
+          <md-slider flex min="0" max="255" ng-model="color.red">
+          </md-slider>
+        </md-slider-container>
+      </div>
+    </md-content>
+  </div>
+  <!-- Angular Material requires Angular.js Libraries -->
+  <script src="D:/Projects/Learning Projects/Angular Material POC/angular-1.3.15/angular-animate.min.js"></script>
+  <script src="D:/Projects/Learning Projects/Angular Material POC/angular-1.3.15/angular-aria.min.js"></script>
+  <script src="D:/Projects/Learning Projects/Angular Material POC/angular-1.3.15/angular-messages.min.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="D:/Projects/Learning Projects/Angular Material POC/angular-1.3.15/angular-material.js"></script>
+
+</body>
+
+</html>
+
+<!--
+Copyright 2016 Google Inc. All Rights Reserved. 
+Use of this source code is governed by an MIT-style license that can be in foundin the LICENSE file at https://material.angularjs.org/license.
+-->

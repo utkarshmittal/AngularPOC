@@ -1,0 +1,161 @@
+<div class="md-dialog-container" tabindex="-1" md-theme="" style="top: 0px; height: 264px;">
+    <div class="md-dialog-focus-trap" tabindex="0"></div>
+    <md-dialog class="flex-60 _md md-dialog-fullscreen md-content-overflow md-transition-in" role="dialog" tabindex="-1"
+        aria-describedby="dialogContent_0" aria-label="$ $ ..." style="">
+        <md-dialog-content id="dialogContent_0">
+            <div class="md-dialog-content">
+                <div class="layout-row flex-100">
+                    <ng-form class="formly ng-pristine ng-valid" name="formly_6" role="form" model="vm.formData" fields="vm.formlyFields.title"
+                        options="vm.options">
+                        <div formly-field="" ng-repeat="field in fields " ng-if="!field.hide" class="formly-field flex-80"
+                            options="field" model="field.model || model" original-model="model" fields="fields" form="theFormlyForm"
+                            form-id="formly_6" form-state="options.formState" form-options="options" index="$index" style="">
+                            <h3 class="landing--title">SEGMENTS</h3>
+                        </div>
+                        <div formly-field="" ng-repeat="field in fields " ng-if="!field.hide" class="formly-field flex-20"
+                            options="field" model="field.model || model" original-model="model" fields="fields" form="theFormlyForm"
+                            form-id="formly_6" form-state="options.formState" form-options="options" index="$index" style="">
+                            <button class="md-icon-button md-button md-ink-ripple" type="button" ng-click="formState.close()">
+                                <i class="material-icons md-ink-ripple ng-scope">close</i>
+                                <div class="md-ripple-container"></div>
+                            </button>
+                        </div>
+                        <div ng-transclude="" class=""></div>
+                    </ng-form>
+                </div>
+                <div class="flex-100">
+                    <ng-form class="formly ng-pristine ng-valid layout-row" name="formly_7" role="form" layout="row" model="vm.formData" fields="vm.formlyFields.customerSegmentTitle"
+                        options="vm.options">
+                        <div formly-field="" ng-repeat="field in fields " ng-if="!field.hide" class="formly-field flex-30 layout-row layout-align-start"
+                            options="field" model="field.model || model" original-model="model" fields="fields" form="theFormlyForm"
+                            form-id="formly_7" form-state="options.formState" form-options="options" index="$index" style="">
+                            <h4>DESELECT TO REMOVE</h4>
+                        </div>
+                        <div formly-field="" ng-repeat="field in fields " ng-if="!field.hide" class="formly-field flex-60"
+                            options="field" model="field.model || model" original-model="model" fields="fields" form="theFormlyForm"
+                            form-id="formly_7" form-state="options.formState" form-options="options" index="$index" style="">
+                            <h4>ADJUST SLIDERS TO SET CAPS</h4>
+                        </div>
+                        <div ng-transclude="" class=""></div>
+                    </ng-form>
+                </div>
+                <div ng-repeat="listItem in vm.capSegmentData" class="" style="">
+                    <div class="layout-row flex-100">
+                        <md-checkbox class="flex-30 ng-valid md-checked ng-not-empty ng-dirty ng-valid-parse ng-touched" ng-model="listItem.segmentName"
+                            aria-label="Select Option" ng-true-value="true" ng-false-value="false" tabindex="0" type="checkbox"
+                            role="checkbox" aria-checked="true" aria-invalid="false" style="">
+                            <div class="md-container md-ink-ripple" md-ink-ripple="" md-ink-ripple-checkbox="">
+                                <div class="md-icon"></div>
+                                <div class="md-ripple-container"></div>
+                            </div>
+                            <div ng-transclude="" class="md-label">RECAPTURE
+                            </div>
+                        </md-checkbox>
+                        <div class="flex-10">$12.91</div>
+                        <md-slider flex="20" ng-model="listItem.capValue" min="12.91" md-discrete="" ng-disabled="!listItem.segmentName" max="50"
+                            class="md-primary ng-untouched ng-valid flex-20 ng-not-empty ng-dirty ng-valid-parse" aria-valuemin="12.91"
+                            aria-valuemax="50" aria-disabled="false" aria-invalid="false" aria-valuenow="49.91" style="">
+                            <div class="md-slider-wrapper" tabindex="-1" role="slider" style="touch-action: pan-y;">
+                                <div class="md-slider-content">
+                                    <div class="md-track-container">
+                                        <div class="md-track"></div>
+                                        <div class="md-track md-track-fill" style="width: 99.7573%;"></div>
+                                        <div class="md-track-ticks">
+                                            <canvas width="151" height="2" style="position: absolute;"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="md-thumb-container" style="left: 99.7573%;">
+                                        <div class="md-thumb"></div>
+                                        <div class="md-focus-thumb"></div>
+                                        <div class="md-focus-ring"></div>
+                                        <div class="md-sign">
+                                            <span class="md-thumb-text">49.91</span>
+                                        </div>
+                                        <div class="md-disabled-thumb"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </md-slider>
+                        <div class="flex-10">$50</div>
+                        <md-checkbox class="flex-20 ng-pristine ng-untouched ng-valid ng-empty" ng-model="listItem.noCapValue" aria-label="Select Option"
+                            ng-true-value="true" ng-false-value="false" tabindex="0" type="checkbox" role="checkbox" aria-checked="false"
+                            aria-invalid="false">
+                            <div class="md-container md-ink-ripple" md-ink-ripple="" md-ink-ripple-checkbox="">
+                                <div class="md-icon"></div>
+                            </div>
+                            <div ng-transclude="" class="md-label">No Cap
+                            </div>
+                        </md-checkbox>
+                    </div>
+                </div>
+                <div ng-repeat="listItem in vm.capSegmentData" class="">
+                    <div class="layout-row flex-100">
+                        <md-checkbox class="flex-30 ng-valid md-checked ng-not-empty ng-dirty ng-valid-parse ng-touched" ng-model="listItem.segmentName"
+                            aria-label="Select Option" ng-true-value="true" ng-false-value="false" tabindex="0" type="checkbox"
+                            role="checkbox" aria-checked="true" aria-invalid="false" style="">
+                            <div class="md-container md-ink-ripple" md-ink-ripple="" md-ink-ripple-checkbox="">
+                                <div class="md-icon"></div>
+                                <div class="md-ripple-container"></div>
+                            </div>
+                            <div ng-transclude="" class="md-label">RETAINED
+                            </div>
+                        </md-checkbox>
+                        <div class="flex-10">$8.6</div>
+                        <md-slider flex="20" ng-model="listItem.capValue" min="8.6" md-discrete="" ng-disabled="!listItem.segmentName" max="50" class="md-primary ng-untouched ng-valid flex-20 ng-not-empty ng-dirty ng-valid-parse"
+                            aria-valuemin="8.6" aria-valuemax="50" aria-disabled="false" aria-invalid="false" aria-valuenow="49.6"
+                            style="">
+                            <div class="md-slider-wrapper" tabindex="-1" role="slider" style="touch-action: pan-y;">
+                                <div class="md-slider-content">
+                                    <div class="md-track-container">
+                                        <div class="md-track"></div>
+                                        <div class="md-track md-track-fill" style="width: 99.0338%;"></div>
+                                        <div class="md-track-ticks">
+                                            <canvas width="154" height="2" style="position: absolute;"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="md-thumb-container" style="left: 99.0338%;">
+                                        <div class="md-thumb"></div>
+                                        <div class="md-focus-thumb"></div>
+                                        <div class="md-focus-ring"></div>
+                                        <div class="md-sign">
+                                            <span class="md-thumb-text">49.6</span>
+                                        </div>
+                                        <div class="md-disabled-thumb"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </md-slider>
+                        <div class="flex-10">$50</div>
+                        <md-checkbox class="flex-20 ng-pristine ng-untouched ng-valid ng-empty" ng-model="listItem.noCapValue" aria-label="Select Option"
+                            ng-true-value="true" ng-false-value="false" tabindex="0" type="checkbox" role="checkbox" aria-checked="false"
+                            aria-invalid="false">
+                            <div class="md-container md-ink-ripple" md-ink-ripple="" md-ink-ripple-checkbox="">
+                                <div class="md-icon"></div>
+                            </div>
+                            <div ng-transclude="" class="md-label">No Cap
+                            </div>
+                        </md-checkbox>
+                    </div>
+                </div>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row" class="layout-row">
+            <ng-form class="formly ng-pristine ng-valid" name="formly_8" role="form" model="vm.button" fields="vm.formlyFields.buttons"
+                options="vm.options">
+                <div formly-field="" ng-repeat="field in fields " ng-if="!field.hide" class="formly-field flex-100 layout-row layout-align-end formly-field-ep-button"
+                    options="field" model="field.model || model" original-model="model" fields="fields" form="theFormlyForm"
+                    form-id="formly_8" form-state="options.formState" form-options="options" index="$index" style="">
+                    <ep-button options="options" ng-model="model[options.key]" on-click="onClick" class="ng-pristine ng-untouched ng-valid ng-empty"
+                        aria-invalid="false">
+                        <a class="md-button buttonWrapper redbtn button-childrenContainer" ng-transclude="" md-no-ink=""
+                            ng-class="vm.options.templateOptions.class" ng-disabled="vm.options.templateOptions.disabled" ng-href=""
+                            title="" target="" aria-label="" ng-click="vm.onClick($event)" ng-if="!vm.options.templateOptions.printButton"
+                            ng-bind-html="vm.options.templateOptions.label" tabindex="0">APPLY</a>
+                    </ep-button>
+                </div>
+                <div ng-transclude="" class=""></div>
+            </ng-form>
+        </md-dialog-actions>
+    </md-dialog>
+    <div class="md-dialog-focus-trap" tabindex="0"></div>
+</div>
